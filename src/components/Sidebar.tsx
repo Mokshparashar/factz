@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import "../style/sidebar.css";
 import { RxCross2 } from "react-icons/rx";
 import Logo from "../assets/factz-white.png";
