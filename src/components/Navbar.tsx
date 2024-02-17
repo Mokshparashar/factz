@@ -9,13 +9,13 @@ const Navbar: FC = () => {
   const { setShowSidebar } = useAppContext();
 
   return (
-    <nav className="m-4 flex items-center justify-between">
+    <nav className="p-4 flex items-center justify-between bg-blue-50  h-12">
       <div>
         <img src={Logo} alt="factz" className="w-12" />
       </div>
       <div></div>
       <div className="">
-        <IoMenu className="text-xl" onClick={()=>setShowSidebar(true)}/>
+        <IoMenu className="text-xl" onClick={() => setShowSidebar(true)} />
       </div>
     </nav>
   );

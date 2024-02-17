@@ -12,7 +12,7 @@ const Sidebar: FC = () => {
       <div className="flex items-center justify-between relative -top-2">
         <img src={Logo} alt="factz" className="w-20" />
         <RxCross2
-          className="  text-white  text-2xl "
+          className="  text-white  text-2xl mr-2"
           onClick={() => setShowSidebar(false)}
         />
       </div>
