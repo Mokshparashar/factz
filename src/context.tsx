@@ -1,9 +1,11 @@
 import React, { createContext, useState, useContext } from "react";
+import getHomeData from "./dataFetching";
 
 interface ContextInterface {
   showSidebar: boolean | null;
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean | null>>;
-  number: number;
+  fetchedData: object | undefined;
+  setFetchedData: React.Dispatch<React.SetStateAction<object | undefined>>;
 }
 const AppContext = createContext<ContextInterface | undefined>(undefined);
 
@@ -11,11 +13,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [showSidebar, setShowSidebar] = useState<boolean | null>(true);
-
+  const [fetchedData, setFetchedData] = useState<object | undefined>();
+  const homeData = getHomeData();
+  setFetchedData(homeData);
   const contextValue: ContextInterface = {
     showSidebar,
     setShowSidebar,
-    number: 1,
+    setFetchedData,
+    fetchedData,
   };
 
   return (
