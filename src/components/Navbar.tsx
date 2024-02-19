@@ -1,12 +1,17 @@
 import Logo from "../assets/factz.png";
 
 import { IoMenu } from "react-icons/io5";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useAppContext } from "../context";
+import GetHomeData from "../dataFetching";
 
 const Navbar: FC = () => {
   const { setShowSidebar, fetchedData } = useAppContext();
-  console.log(fetchedData.);
+  useEffect(() => {
+    GetHomeData();
+  }, []);
+
+  console.log(fetchedData);
 
   return (
     <nav className="p-4 flex items-center justify-between bg-blue-50  h-12">
