@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
-import getHomeData from "./dataFetching";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 interface ContextInterface {
   showSidebar: boolean | null;
@@ -14,8 +13,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [showSidebar, setShowSidebar] = useState<boolean | null>(true);
   const [fetchedData, setFetchedData] = useState<object | undefined>();
-  const homeData = getHomeData();
-  setFetchedData(homeData);
+
   const contextValue: ContextInterface = {
     showSidebar,
     setShowSidebar,
