@@ -1,18 +1,25 @@
 import { FC } from "react";
-import { useAppContext } from "../context";
+import { DataInterface } from "../../typings";
 
-interface dataInterface {
-  articles: object[];
-  status: string;
-  totalResults: number;
+interface PropsInterface {
+  data: DataInterface | undefined;
 }
-interface propsInterface {
-  data: dataInterface | undefined;
-}
-const Articles = (props: propsInterface) => {
-  console.log(props.data);
-
-  return <div>Articles</div>;
+const Articles: FC<PropsInterface> = (props: PropsInterface) => {
+  return (
+    <div>
+      {props.data?.articles.map((item) => {
+        return (
+          <a href={item.url} key={item.title}>
+            <div className="mt-10">
+              <h1 className="uppercase font-medium text-3xl">{item.title} </h1>
+              <span className="text-green-600">Click for the full content</span>
+              <img src={item.urlToImage} alt="" />
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Articles;

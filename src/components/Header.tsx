@@ -17,7 +17,7 @@ function Header() {
     setClock(true);
   }
   return (
-    <div className="w-full m-auto flex items-center justify-around mt-4 border-solid border-b-2 border-gray-100 ">
+    <div className="w-full m-auto flex items-center justify-around pt-2 border-solid border-b-2 border-gray-100 bg-white">
       <div
         className="flex items-center justify-between flex-col hover:cursor-pointer"
         onClick={homeHandler}

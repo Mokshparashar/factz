@@ -1,23 +1,27 @@
 import Logo from "../assets/factz.png";
 
 import { IoMenu } from "react-icons/io5";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useAppContext } from "../context";
-import GetHomeData from "../dataFetching";
+
+import Header from "./Header";
 
 const Navbar: FC = () => {
-  const { setShowSidebar, fetchedData, setFetchedData } = useAppContext();
+  const { setShowSidebar } = useAppContext();
 
   return (
-    <nav className="p-4 flex items-center justify-between bg-blue-50  h-12">
-      <div>
-        <img src={Logo} alt="factz" className="w-12" />
-      </div>
-      <div></div>
-      <div className="hover:cursor-pointer">
-        <IoMenu className="text-xl" onClick={() => setShowSidebar(true)} />
-      </div>
-    </nav>
+    <div className="sticky top-0">
+      <nav className="p-4 flex items-center justify-between bg-blue-50  h-12 ">
+        <div>
+          <img src={Logo} alt="factz" className="w-12" />
+        </div>
+        <div></div>
+        <div className="hover:cursor-pointer">
+          <IoMenu className="text-xl" onClick={() => setShowSidebar(true)} />
+        </div>
+      </nav>
+      <Header />
+    </div>
   );
 };
 

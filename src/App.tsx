@@ -1,15 +1,16 @@
 import { useCallback, useEffect, useState } from "react";
 import "../src/App.css";
-import Header from "./components/Header";
+
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { useAppContext } from "./context";
+
 import { apiConfig } from "./config/apiConfig";
 import globalInstance from "../api/globalInstance";
 import Articles from "./components/Articles";
+import { DataInterface } from "../typings";
 
 function App() {
-  const { setFetchedData, fetchedData } = useAppContext();
+  const [fetchedData, setFetchedData] = useState<DataInterface | undefined>();
 
   const getHomeData = useCallback(async () => {
     try {
@@ -19,7 +20,6 @@ function App() {
       const jsonData = await response.json();
       setFetchedData(jsonData);
     } catch (error) {
-      // Handle errors if needed
       console.error("Error fetching home data:", error);
     }
   }, [setFetchedData]);
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      <Header />
+
       <Sidebar />
       <Articles data={fetchedData} />
     </div>
