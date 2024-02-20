@@ -6,12 +6,7 @@ import { useAppContext } from "../context";
 import GetHomeData from "../dataFetching";
 
 const Navbar: FC = () => {
-  const { setShowSidebar, fetchedData } = useAppContext();
-  useEffect(() => {
-    GetHomeData();
-  }, []);
-
-  console.log(fetchedData);
+  const { setShowSidebar, fetchedData, setFetchedData } = useAppContext();
 
   return (
     <nav className="p-4 flex items-center justify-between bg-blue-50  h-12">
