@@ -7,7 +7,7 @@ interface PropsInterface {
 const Articles: FC<PropsInterface> = (props: PropsInterface) => {
   return (
     <div>
-      {props.data?.articles.map((item) => {
+      {props?.data?.articles?.map((item) => {
         return (
           <a href={item.url} key={item.title}>
             <div className="mt-10">
