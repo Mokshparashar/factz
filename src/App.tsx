@@ -12,7 +12,7 @@ function App() {
 
   const getHomeData = useCallback(async () => {
     try {
-      const response = await fetch(`/adarsh`);
+      const response = await fetch("/adarsh");
       const jsonData = await response.json();
       setFetchedData(jsonData);
     } catch (error) {
