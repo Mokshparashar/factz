@@ -15,7 +15,7 @@ function App() {
   const getHomeData = useCallback(async () => {
     try {
       const response = await fetch(
-        `${globalInstance.url}everything?q=india&apiKey=${apiConfig.apiKey}`
+        `/adarsh`
       );
       const jsonData = await response.json();
       setFetchedData(jsonData);
