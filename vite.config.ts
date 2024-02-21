@@ -7,6 +7,7 @@ export default defineConfig({
     proxy: {
       "/api": "https://jsbackend-k2xi.onrender.com",
     },
+    port: 5173,
   },
   plugins: [react()],
 });
