@@ -12,7 +12,7 @@ function App() {
 
   const getHomeData = useCallback(async () => {
     try {
-      const response = await fetch("/api/adarsh");
+      const response = await fetch("https://jsbackend-k2xi.onrender.com/api/adarsh");
       const jsonData = await response.json();
       setFetchedData(jsonData);
     } catch (error) {
