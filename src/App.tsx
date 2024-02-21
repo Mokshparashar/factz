@@ -4,8 +4,6 @@ import "../src/App.css";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
-import { apiConfig } from "./config/apiConfig";
-import globalInstance from "../api/globalInstance";
 import Articles from "./components/Articles";
 import { DataInterface } from "../typings";
 
@@ -14,9 +12,7 @@ function App() {
 
   const getHomeData = useCallback(async () => {
     try {
-      const response = await fetch(
-        `/adarsh`
-      );
+      const response = await fetch(`/adarsh`);
       const jsonData = await response.json();
       setFetchedData(jsonData);
     } catch (error) {
