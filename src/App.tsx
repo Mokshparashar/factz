@@ -10,9 +10,10 @@ import LoadingSpinner from "./components/Loader";
 
 function App() {
   const [fetchedData, setFetchedData] = useState<DataInterface | undefined>();
-  const [isLoader, setIsLoader] = useState<boolean>(true);
+  const [isLoader, setIsLoader] = useState<boolean>();
 
   const getHomeData = useCallback(async () => {
+    setIsLoader(true)
     try {
       const response = await fetch(
         "https://jsbackend-k2xi.onrender.com/api/adarsh"
@@ -22,11 +23,13 @@ function App() {
     } catch (error) {
       console.error("Error fetching home data:", error);
     }
+    setIsLoader(false);
   }, [setFetchedData]);
 
   useEffect(() => {
+    
     getHomeData();
-    setIsLoader(false);
+    
   }, []);
 
   return (
