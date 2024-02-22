@@ -6,13 +6,17 @@ import Sidebar from "./components/Sidebar";
 
 import Articles from "./components/Articles";
 import { DataInterface } from "../typings";
+import LoadingSpinner from "./components/Loader";
 
 function App() {
   const [fetchedData, setFetchedData] = useState<DataInterface | undefined>();
+  const [isLoader, setIsLoader] = useState<boolean>(true);
 
   const getHomeData = useCallback(async () => {
     try {
-      const response = await fetch("https://jsbackend-k2xi.onrender.com/api/adarsh");
+      const response = await fetch(
+        "https://jsbackend-k2xi.onrender.com/api/adarsh"
+      );
       const jsonData = await response.json();
       setFetchedData(jsonData);
     } catch (error) {
@@ -22,6 +26,7 @@ function App() {
 
   useEffect(() => {
     getHomeData();
+    setIsLoader(false);
   }, []);
 
   return (
@@ -29,7 +34,7 @@ function App() {
       <Navbar />
 
       <Sidebar />
-      <Articles data={fetchedData} />
+      {isLoader ? <LoadingSpinner /> : <Articles data={fetchedData} />}
     </div>
   );
 }
